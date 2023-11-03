@@ -8,9 +8,9 @@ if(true){
     const b = 40;
     var c = 60;
 
-    console.log("innner " + a);
-    console.log("inner " + b);
-    console.log("inner " + c);
+    console.log("innner: " + a);
+    console.log("inner: " + b);
+    console.log("inner: " + c);
 }
 
 
