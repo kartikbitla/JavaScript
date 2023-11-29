@@ -1,19 +1,4 @@
-let a = 10;
-const b = 20;
-var c = 30;
+let add = (a, b) => a+b;
 
-
-if(true){
-    let a = 20;
-    const b = 40;
-    var c = 60;
-
-    console.log("innner: " + a);
-    console.log("inner: " + b);
-    console.log("inner: " + c);
-}
-
-
+let a = add(4,3);
 console.log(a);
-console.log(b);
-console.log(c);

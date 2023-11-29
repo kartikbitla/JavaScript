@@ -1,0 +1,254 @@
+More Modern JS Concepts
+
+* SPREAD OPERATOR - Spread Operator is used to unpack iterable (e.g an array) it into individual elements.
+ exa:- let myArray = [1, 2, 3];
+           ...myArray ---> 1, 2, 3
+
+
+Spread Operator - Spread Operator syntax can be used to pass and array of Arguments to the function.
+exa:- function add(a, b, c){
+    return a + b + c;
+}
+
+let numbers = [1, 2, 3];
+console.log(add(...numbers));
+
+
+Extra values will be ignored if more arguments are passed than function parameters.
+exa:-
+function add(a, b, c){
+    return a + b + c;
+}
+
+let numbers = [1, 2, 3, 4, 5];
+console.log(add(...numbers));
+
+
+* REST PARAMETER - With rest Parameter, we can pack multiple valus into an array
+exa:- function numbers(...args){
+    console.log(args);   ---> [1, 2, 3]
+}
+numbers(1, 2 , 3);
+
+
+* DESTRUCTURING ARRAYS
+let [a, b, c] = [1, 2, 3];
+console.log(a);    -> 1
+console.log(b);    -> 2     
+console.log(c);    -> 3
+
+
+* DEFAULT PARAMETERS
+It allows us to give default values to function parameters
+function numbers(a=2, b=5){
+    console.log(a);
+    console.log(b);
+}
+
+numbers();  ## even if we pass any value here in the calling function, that will be assigned to 1st parameter in the function
+
+
+
+* TEMPLATE LITERALS(TEMPLATE STRINGS)
+ Template Literals are enclosed by the backticks(``)
+
+They are used to
+    * Embed variable or expressions in the strings
+    * Write multiple strings
+
+These variable or expressions are included using dollar sign with curly braces ${}
+exa:-
+let firstName = "Kartik";
+console.log(`Hello ${firstName}`);
+
+
+* TERNARY OPERATOR
+    A Ternary Operator can be used to replace if...else statements in some situations
+    condition? expression1 : expression2;
+
+    exa:-
+    let speed = 70;
+    let message = speed >= 100? : "Too Fast": "OK";
+    console.log(message);  ---> OK
+
+* SWITCH STATEMENT
+    A conditional statement like if..else statement used in decision making
+    switch(expression){
+        case value1:
+        //statement(s)
+        break;
+        
+        case value2:
+        //statement(s)
+        break;
+
+        case value3:
+        //statement(s)
+        break;
+
+        default:
+        //statement(s)
+        break;
+    }
+
+
+
+* DEFINING FUNCTIONS
+    There are multiple ways to define a function
+        * Function Declaration
+        * Function Expression
+        * Arrow Functions
+        * Function Constructor   ....many more
+
+    Function Declaration
+        function add(a, b){
+            return a + b;
+        }
+        console.log(add(4, 3));
+
+
+    Functin Expression
+        let add = function(a, b){
+            return a + b;
+        }    
+        console.log(add(4, 3));
+
+    
+
+    Arrow Functions - An Arrow function is a simple and concise syntax for defining functions
+    It is an alternative to a function expression
+    let add = (a, b) => {
+        return a+b;
+    }
+    add(4, 3);
+
+    //Simple version of arrow function
+    let add = (a, b) => a+b;
+    let a = add(4,3);
+    console.log(a);
+
+
+    If there is only one parameter, then parentheses are not required.
+    let functionName = parameter => expression;
+
+
+    If there are no parameters, parenthese will be empty (but they should be present)
+    let sayHi = () => "Hello!";
+    console.log(sayHi());
+
+
+
+* CREATING MULTIPLE OBJECTS
+    * Using object literals
+    * Using factory function
+    * Using constructor function
+    * Using JS Classes
+
+    Using Object Literals
+    let car1 = {
+        color: "blue",
+        brand: "Audi",
+        start: function(){
+            console.log("Started");
+        }
+    };
+
+
+    Factory Function - A Factory function is any function that returns a new object for every function call
+                       Function name should follow camelCase naming Convention
+
+    function createCar(color, brand){
+        return {
+            color,
+            brand,
+            start(){
+                console.log("Started");
+            }
+        }
+    }
+
+    let car1 = createCar("Blue", "Tata");
+    let car2 = createCar("Red", "BMW");
+
+
+
+    Constructor Function - A regular function that returns a new object on calling with the new operator
+                           The created new object is called an instance
+                           Function name should follow PascallCase naming Convention
+
+
+                           When a function is called with new, it does the following steps:
+                            * Creates and empty object and assigns to this
+                            * Return this
+
+
+                            function car(color, brand){
+                                this.color = color;
+                                this.brand  = brand;
+                                this.start = function(){
+                                    console.log("Started");
+                                }
+                            }
+
+                            let car1 = new car("Blue", "BMW");  //here car1 will be referred as instance
+                            console.log(car1)
+
+                            car1 is instance
+                            car1.start() is instance method
+                            car1.color, car1.brand are instance properties
+
+
+    Factory vs Constructor Functions
+    Factory Functions               Constructor Functions
+    * Follows camelCase notation    * Follow PascalCase notation
+    * No need of new Operator for   * Need new Operator for function calling
+      function calling
+    * Explicitly need to return     * Ceated object returns implicitly 
+      the Object
+
+
+
+    Functions are Objects - Similar to Objects, function also have properties and methods.
+    
+    Default function properties and Methods
+    Properties              Methods
+     - name                 - apply()
+     - length               - bind()
+     - constructor          - call()
+     - prototype            - toString()
+
+
+
+    function car(color, brand){
+            this.color = color;
+            this.brand  = brand;
+            this.start = function(){
+                console.log("Started");
+            }
+        }
+
+    car.name --> car //will return the name of the function
+    car.length --> //will return the number of parameters we have passed to the function
+
+
+    Constructor Property
+    Every object in javaScript has a constructor property, The constructor property refers to the constructor function which is used to create the object.
+    car1.constructor // car(color, brand) -> it will return the constructor function
+
+
+
+    Built-in Constructor functions
+    These are the Constructor functions provided by the javaScript already
+    
+    * function Date() //To work with date and time in our applications, we use built-in Date Constructor function
+    let now = new Date(); //creating a Date object without passing any arguments to the function gives current date and time
+    let now = new Date("2023-11-29"); //If you would like desire date string then we can pass an argument to the date function like this
+    new Date(year, month, date, hours, minutes, seconds, ms);
+
+    
+    
+    * function Error()
+    * function Promise()
+    * function Object()
+    * function String()
+    * function Number()
