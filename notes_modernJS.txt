@@ -252,3 +252,196 @@ console.log(`Hello ${firstName}`);
     * function Object()
     * function String()
     * function Number()
+
+
+
+* THIS
+    this is determindd in three ways
+        In object methods, this refers to the
+        - Object that is executing th current function
+        
+        
+        In regular function, this refers to the 
+        - Global object
+
+        In Arrow functions, this refers to the
+        - Context in which the code is defined
+
+
+        1. Object methods
+        let car = {
+            color:"blue",
+            brand:"Audi", 
+            start:function(){
+                console.log(this);
+            }
+        }
+        car.start();
+
+        //{ color: 'blue', brand: 'Audi', start: [Function: start] }
+        this refers to the object that is executing the current function
+
+
+        2. Regular function
+        function start(){
+            console.log(this);
+        }
+        start();
+        In Regular function, this refers to the window Object (window object will be explained further)
+
+
+        3. Arrow function
+        In Arrow functions, this depends on two aspects:
+        * When the code is defined
+        * Context
+
+
+                When the code is Defined
+                When is callback function defined?
+
+                let car = {
+                    color:"blue",
+                    brand:"Audi",
+                    start:function(){
+                        setTimeout(function(){
+                            console.log(this);
+                        }, 1000);
+                    }
+                };
+
+                car.start();
+
+
+
+                Context
+                exa 1
+                console.log(this);  //this = window
+
+                exa 2
+                let car = {
+                    color:"blue",
+                    brand:"Audi",
+                    start:function(){
+                        console.log(this);
+                    }
+                };
+
+                car.start();    // this = car
+
+
+
+                This is Arrow function
+                Object Method
+
+                let car = {
+                    color:"blue",
+                    brand:"Audi",
+                    start:() => {
+                        console.log(this);
+                    }
+                };
+
+                car.start();   //result will be window object
+                Arrow function inherits this from the context in which the code is defined
+
+
+                this in callbacks
+                Arrow functions with callbacks
+
+                let car = {
+                    color:"blue",
+                    brand:"audi",
+                    start:function(){
+                        setTimeout(() => {
+                            console.log(this);
+                        },1000);
+                    }
+                };
+                car.start();   //this = car
+
+
+                another example
+                Arrow functions with callbacks
+                let cars = ["audi", "bmw", "mercedes"];
+                let car = {
+                    color:"blue",
+                    brand:"audi",
+                    start:function(){
+                        let audiIndex = cars.findIndex(
+                            (car) => console.log(this);
+                        );
+                    }
+                };
+                car.start();  / this = car
+
+
+this
+Constructor Functions
+When a function is called with new, it does the following steps:
+    - Creates an empty object and assigns to this
+    - Return this
+
+
+    function Car(color, brand){
+        this.color = color;
+        this.brand = brand;
+        this.start = function(){
+            console.log(this);
+        };
+    }
+
+    let car1 = new Car("blue", "Audi");
+    car1.start();
+    In Constructor function, this refers to the instance object  // this = car1
+
+
+
+this Arrow function as method
+
+function Car(color, brand){
+    this.color = color;
+    this.brand = brand;
+    this.start = () => {
+        console.log(this);
+    };
+}
+
+let car1 = new Car("blue", "Audi");
+console.log(car1);   // this = car1
+Arrow function inherits this from the context in which the code is defined
+
+
+
+Values
+Primitives & Objects
+
+All the primitive type values are immutable
+All the objects are mutuable
+
+Primitive Types             Objects
+Number                      Object
+String                      Array
+Boolean                     Function
+Symbol
+Undefined
+
+
+
+All the primitive type values are immutable
+let x = 5;
+let y = x;
+y = 10;
+cosole.log(x);   //5  //here new object has been created, not referring to same object
+console.log(y);  //10
+
+
+All the objects are mutuable
+let x = {value:5};
+let y = x;
+let z = {value:20};
+y.value = 10;
+console.log(x);  //Object {value:10}  //because they are referring to same object
+console.log(y);  //Object {value:10}
+y = z;
+console.log(x);  //Object {value:10}
+console.log(y);  //Object {value:20}
