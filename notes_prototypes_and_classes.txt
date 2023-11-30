@@ -1,0 +1,67 @@
+Array
+Prototype Property
+- Prototype property will be shared across all the instances of its constructor function.
+
+console.log(Array.prototype);
+
+let myArray = new Array("a", 2 , true);
+console.log(Object.getPrototypeOf(myArray));
+
+The code console.log(Array.prototype); is used to output the prototype of the Array object in JavaScript to the console. 
+The prototype is a special object that serves as the blueprint for all array objects. 
+It contains properties and methods that are shared by all array objects.
+When you create a new array object, it inherits all the properties and methods from its prototype.
+This means that you can access these properties and methods using the dot notation on the array object. 
+For example, the following code will print the length of an array object:
+
+const myArray = [1, 2, 3];
+console.log(myArray.length);
+
+This code works because the length property is defined on the Array prototype. 
+The myArray object inherits this property, so you can access it using the dot notation.
+The console.log(Array.prototype); code is simply a way to inspect the contents of the Array prototype object. 
+This can be useful for learning about the properties and methods that are available to array objects.
+
+
+
+Prototypal Inheritance
+ - On calling the new() operator, all the properties defined on the prototype wil become a accessible to the instance objects.
+   this process is called Prototypal Inheritance
+
+
+
+Sure, I can explain prototypal inheritance in simple terms.
+Imagine you have a blueprint for building a house. This blueprint contains all the details about the house, 
+such as the number of rooms, the size of the kitchen, and the placement of the windows. When you construct a new house, 
+you follow the blueprint to create a specific instance of a house.
+Prototypal inheritance works in a similar way. In JavaScript, objects are like blueprints, 
+and they can have properties and methods. When you create a new object using the new keyword, 
+you are essentially creating an instance of an existing object. This new object inherits all the properties and methods of its prototype.
+
+For example, consider the following code:
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+const john = new Person('John', 30);
+
+
+In this code, the Person function is a blueprint for creating Person objects. 
+The Person.prototype object contains a property called greet which is a method that can be called on any Person object. 
+When you create a new Person object using the new keyword, this object inherits the greet method from its prototype.
+
+To call the greet method on the john object, you would use the following code:
+
+john.greet();
+
+This would output the following to the console:   // Hello, my name is John and I am 30 years old.
+
+Prototypal inheritance is a powerful feature of JavaScript that allows you to share properties and methods between objects. 
+This can make your code more modular and reusable.
+
