@@ -65,3 +65,12 @@ This would output the following to the console:   // Hello, my name is John and 
 Prototypal inheritance is a powerful feature of JavaScript that allows you to share properties and methods between objects. 
 This can make your code more modular and reusable.
 
+
+
+CALL STACK
+Call Stack is also known as below
+ - Execution context stack
+ - Program stack
+ - Control stack
+ - Runtime stack
+ - Machine stack
