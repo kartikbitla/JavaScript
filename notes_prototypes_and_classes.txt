@@ -38,7 +38,7 @@ Prototypal inheritance works in a similar way. In JavaScript, objects are like b
 and they can have properties and methods. When you create a new object using the new keyword, 
 you are essentially creating an instance of an existing object. This new object inherits all the properties and methods of its prototype.
 
-For example, consider the following code:
+For example, consider the following code:-
 
 function Person(name, age) {
   this.name = name;
