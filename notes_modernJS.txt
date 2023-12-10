@@ -445,3 +445,7 @@ console.log(y);  //Object {value:10}
 y = z;
 console.log(x);  //Object {value:10}
 console.log(y);  //Object {value:20}
+
+
+HOW A JS CODE WORKS
+web API>Callstack>global execution>callstack queue>final code execute
