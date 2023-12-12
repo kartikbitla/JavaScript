@@ -24,7 +24,7 @@ This can be useful for learning about the properties and methods that are availa
 
 
 
-Prototypal Inheritance
+Prototypal Inheritance:-
  - On calling the new() operator, all the properties defined on the prototype wil become a accessible to the instance objects.
    this process is called Prototypal Inheritance.
 
