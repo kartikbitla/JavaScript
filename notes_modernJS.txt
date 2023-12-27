@@ -467,3 +467,40 @@ toLowerCase -> The toUpperCase() method returns the value converted to lowercase
 replace() -> The replace() method searches a string for a specified value, or a regular expression, and returns a new string where the specified value is replaced.
 subString -> The substring() method returns the part of the string between the start and end indexes, or to the end of the string.
 length -> The length property returns the length of a string (number of characters).
+
+
+Scoping
+Scope is the region of the code where a certain variable can be accessed.
+1. Block Scope
+2. Global Scope
+
+Block Scope - If a variable is declared using const or let within a curly brace ({}), then it is said to be defined in the Block Scope.
+Global Scope - If a variable is declared outside all functions and curly braces ({}), then it is said to be defined in the Global Scope.
+
+When we access a variable defined using let or const, Javascript searches for the Variable in the block scope first followed by global scope.
+
+
+
+HOISTING
+Hoisting is a javascript mechanism where function declarations are moved to the top of their scope before code execution.
+only the function delaration are hoisted, Function expressions and arrow functions in javascript are not hoisted.
+
+
+Map, Filter & Reduce
+map(), filter(), reduce() are array methods in JavaScript. Each method iterates over an array and performs an operation.
+
+
+Array Methods
+Mutable & Immutable
+Mutable methods will change the original array
+* shift()
+* unshift()
+* push()
+* splice()
+
+
+Immutable methods wont change the original array
+* map()
+* filter()
+* reduce()
+* slice()
