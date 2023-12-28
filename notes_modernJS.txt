@@ -481,7 +481,7 @@ When we access a variable defined using let or const, Javascript searches for th
 
 
 
-HOISTING
+HOISTING:-
 Hoisting is a javascript mechanism where function declarations are moved to the top of their scope before code execution.
 only the function delaration are hoisted, Function expressions and arrow functions in javascript are not hoisted.
 
