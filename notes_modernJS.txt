@@ -504,3 +504,16 @@ Immutable methods wont change the original array
 * filter()
 * reduce()
 * slice()
+
+THIS
+this is determined in three ways
+In object methods, this refers to the
+ - Object that is executing the current function
+
+In Regular function, this refers to the
+ - Global function
+
+In Arrow function, this refers to the
+ - Context in which the code is defined
+
+
