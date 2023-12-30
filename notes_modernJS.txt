@@ -486,7 +486,7 @@ Hoisting is a javascript mechanism where function declarations are moved to the 
 only the function delaration are hoisted, Function expressions and arrow functions in javascript are not hoisted.
 
 
-Map, Filter & Reduce
+Map, Filter & Reduce functions
 map(), filter(), reduce() are array methods in JavaScript. Each method iterates over an array and performs an operation.
 
 
