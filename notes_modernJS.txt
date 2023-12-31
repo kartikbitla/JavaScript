@@ -490,7 +490,7 @@ Map, Filter & Reduce functions
 map(), filter(), reduce() are array methods in JavaScript. Each method iterates over an array and performs an operation.
 
 
-Array Methods
+Array Methods:-
 Mutable & Immutable
 Mutable methods will change the original array
 * shift()
